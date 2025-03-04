@@ -2,6 +2,29 @@
 
 Una aplicación web completa para la generación y gestión de códigos QR estáticos y dinámicos, desarrollada con Laravel 12 y Filament.
 
+## Capturas de Pantalla
+
+### Panel de Control
+![Panel de Control](docs/screenshots/dashboard.png)
+
+### Códigos QR Dinámicos
+![Códigos QR Dinámicos](docs/screenshots/dynamic-qrcodes.png)
+
+### Códigos QR Estáticos
+![Códigos QR Estáticos](docs/screenshots/static-qrcodes.png)
+
+### Creación de QR Dinámico
+![Creación de QR Dinámico](docs/screenshots/dynamic-qr-create.png)
+
+### Creación de QR Estático
+![Creación de QR Estático](docs/screenshots/static-qr-create.png)
+
+### Personalización Avanzada
+![Personalización de QR](docs/screenshots/qr-customization.png)
+
+### Gestión de Usuarios
+![Gestión de Usuarios](docs/screenshots/users.png)
+
 ## Características Principales
 
 - **Panel de administración** con estadísticas en tiempo real

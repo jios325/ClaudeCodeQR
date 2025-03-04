@@ -21,3 +21,35 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Filament
+/public/filament/assets/*
+
+# Generado por la aplicación
+/storage/app/public/*
+!/storage/app/public/.gitkeep
+
+# User uploads
+/storage/app/public/qr-logos/*
+!/storage/app/public/qr-logos/.gitkeep
+
+# Archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de bases de datos locales
+*.sqlite*
+*.db
+!database/database.sqlite
+
+# Archivos temporales de editores
+*.swp
+*.swo
+*~
+.*.un~
+
+# Dejar las capturas en el repositorio
+!/docs/screenshots
