@@ -1,0 +1,38 @@
+created:
+    - app/Http/Controllers/DynamicQRCodeController.php
+    - app/Http/Controllers/StaticQRCodeController.php
+    - app/Http/Controllers/ScanLogController.php
+    - database/factories/UserFactory.php
+    - database/factories/DynamicQRCodeFactory.php
+    - database/factories/StaticQRCodeFactory.php
+    - database/factories/ScanLogFactory.php
+    - database/migrations/2025_03_04_004333_create_users_table.php
+    - database/migrations/2025_03_04_004334_create_dynamic_q_r_codes_table.php
+    - database/migrations/2025_03_04_004335_create_static_q_r_codes_table.php
+    - database/migrations/2025_03_04_004336_create_scan_logs_table.php
+    - app/Models/User.php
+    - app/Models/DynamicQRCode.php
+    - app/Models/StaticQRCode.php
+    - app/Models/ScanLog.php
+    - tests/Feature/Http/Controllers/DynamicQRCodeControllerTest.php
+    - tests/Feature/Http/Controllers/StaticQRCodeControllerTest.php
+    - tests/Feature/Http/Controllers/ScanLogControllerTest.php
+    - app/Http/Requests/DynamicQRCodeStoreRequest.php
+    - app/Http/Requests/DynamicQRCodeUpdateRequest.php
+    - app/Http/Requests/StaticQRCodeStoreRequest.php
+    - app/Http/Requests/StaticQRCodeUpdateRequest.php
+    - app/Http/Requests/ScanLogStoreRequest.php
+    - app/Http/Requests/ScanLogUpdateRequest.php
+    - app/Http/Resources/DynamicQRCodeCollection.php
+    - app/Http/Resources/DynamicQRCodeResource.php
+    - app/Http/Resources/StaticQRCodeCollection.php
+    - app/Http/Resources/StaticQRCodeResource.php
+    - app/Http/Resources/ScanLogCollection.php
+    - app/Http/Resources/ScanLogResource.php
+updated:
+    - routes/api.php
+models:
+    User: { username: string, password: string, user_type: 'enum:super_admin,admin', remember_token: 'string nullable', timestamps: timestamps, softdeletes: softDeletes }
+    DynamicQRCode: { user_id: 'id foreign', filename: string, redirect_identifier: 'string unique', url: string, foreground_color: "string default:'#000000'", background_color: "string default:'#FFFFFF'", precision: 'enum:L,M,Q,H default:L', size: 'integer default:200', scan_count: 'integer default:0', status: 'boolean default:true', relationships: { belongsTo: User }, timestamps: timestamps, softdeletes: softDeletes }
+    StaticQRCode: { user_id: 'id foreign', filename: string, content_type: 'enum:text,email,phone,sms,whatsapp,skype,location,vcard,event,bookmark,wifi,paypal,bitcoin,2fa', content: longtext, foreground_color: "string default:'#000000'", background_color: "string default:'#FFFFFF'", precision: 'enum:L,M,Q,H default:L', size: 'integer default:200', format: 'enum:png,svg,eps default:png', relationships: { belongsTo: User }, timestamps: timestamps, softdeletes: softDeletes }
+    ScanLog: { qr_code_id: id, qr_code_type: 'enum:dynamic,static', ip_address: 'string nullable', user_agent: 'string nullable', timestamp: timestamp, timestamps: timestamps }

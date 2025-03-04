@@ -1,0 +1,57 @@
+models:
+  User:
+    username: string
+    password: string
+    user_type: enum:super_admin,admin
+    remember_token: string nullable
+    timestamps: true
+    softDeletes: true
+
+  DynamicQRCode:
+    user_id: id foreign
+    filename: string
+    redirect_identifier: string unique
+    url: string
+    foreground_color: string default:'#000000'
+    background_color: string default:'#FFFFFF'
+    precision: enum:L,M,Q,H default:L
+    size: integer default:200
+    scan_count: integer default:0
+    status: boolean default:true
+    relationships:
+      belongsTo: User
+    timestamps: true
+    softDeletes: true
+
+  StaticQRCode:
+    user_id: id foreign
+    filename: string
+    content_type: enum:text,email,phone,sms,whatsapp,skype,location,vcard,event,bookmark,wifi,paypal,bitcoin,2fa
+    content: longtext
+    foreground_color: string default:'#000000'
+    background_color: string default:'#FFFFFF'
+    precision: enum:L,M,Q,H default:L
+    size: integer default:200
+    format: enum:png,svg,eps default:png
+    relationships:
+      belongsTo: User
+    timestamps: true
+    softDeletes: true
+
+  ScanLog:
+    qr_code_id: id
+    qr_code_type: enum:dynamic,static
+    ip_address: string nullable
+    user_agent: string nullable
+    timestamp: timestamp
+    timestamps: true
+
+controllers:
+  DynamicQRCode:
+    resource: api
+    
+  StaticQRCode:
+    resource: api
+    
+  ScanLog:
+    resource: api
