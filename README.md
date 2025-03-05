@@ -72,7 +72,7 @@ Los códigos QR estáticos codifican directamente su contenido y soportan múlti
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/qrcode-generator.git
+   git clone https://github.com/jios325/qrcode-generator.git
    cd qrcode-generator
    ```
 
